@@ -6,6 +6,7 @@ class Pokedex extends React.Component {
 
   constructor() {
     super();
+    this.selectPokemon = this.selectPokemon.bind(this);
 
     this.state = {
       index: 0,
@@ -14,16 +15,22 @@ class Pokedex extends React.Component {
   }
 
   selectPokemon() {
-    this.setState((prevState, _props) => ({
-      index: prevState.index + 1,
-    }))
+    if (this.state.index < (this.state.pokemons).length - 1) {
+     return this.setState((prevState, _props) => ({
+        index: prevState.index + 1,
+      }))
+      // console.log(this.state.index);
+    }
+    return this.setState({
+      index: 0,
+    })
   }
 
     render() {
         return (
             <div className="pokedex">
-                { <Pokemon key={pokemons[0].id} pokemon={pokemons[0]} /> }
-                <button onClick={}></button>
+                { <Pokemon key={pokemons[this.state.index].id} pokemon={pokemons[this.state.index]} /> }
+                <button onClick={ this.selectPokemon }>Próximo </button>
             </div>
         );
     }
