@@ -30,7 +30,7 @@ class Pokedex extends React.Component {
         return (
             <div className="pokedex">
                 { <Pokemon key={pokemons[this.state.index].id} pokemon={pokemons[this.state.index]} /> }
-                <button onClick={ this.selectPokemon }>Próximo </button>
+                <button className="nextBtn" onClick={ this.selectPokemon }>Próximo </button>
             </div>
         );
     }
